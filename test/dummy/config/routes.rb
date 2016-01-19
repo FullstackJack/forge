@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
 
-  mount Forgecms::Engine => "/forgecms"
+  mount Forgecms::Engine => "/"
+
 end
