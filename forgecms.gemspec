@@ -9,15 +9,21 @@ Gem::Specification.new do |s|
   s.version     = Forgecms::VERSION
   s.authors     = ["Kyle Bedell"]
   s.email       = ["kyle@kylebedell.com"]
-  s.homepage    = "kylebedell.com"
-  s.summary     = "TODO: Summary of Forgecms."
-  s.description = "TODO: Description of Forgecms."
+  s.homepage    = "http://www.kylebedell.com"
+  s.summary     = "Create a CMS-backed blog or website."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.5"
+  s.add_dependency 'rails', '~> 4.2.4'
+  s.add_dependency 'jquery-rails', '~> 4.0.5'
+  s.add_dependency 'bootstrap-sass', '~> 3.3.6'
+  s.add_dependency 'sass-rails', '>= 3.2'
+  s.add_dependency 'sprockets-rails', '>= 2.1.4'
+  s.add_dependency 'font-awesome-sass', '~> 4.5.0'
+  s.add_dependency 'devise', '>= 3.5.2'
+  s.add_dependency 'haml-rails', '~> 0.9'
 
-  s.add_development_dependency "mysql2"
+  s.add_development_dependency 'mysql2'
 end
