@@ -1,0 +1,9 @@
+.page-header.clearfix
+  %h2.pull-left Posts
+  = link_to "New Post", forgecms.new_post_path, { class: "btn btn-primary pull-right" }
+.page-content
+  %ul.listview
+    - @posts.each do |post|
+      %li
+        .post-title= link_to post.title, forgecms.edit_post_path(post.id)
+        .post-date= post.created_at.to_s

@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %title ForgeCMS
+    = stylesheet_link_tag    "forgecms/application", media: "all"
+    = javascript_include_tag "forgecms/application"
+    = csrf_meta_tags
+  %body.admin{:class => page_class}
+    .wrapper
+      = render 'forgecms/shared/header'
+      = render 'forgecms/shared/sidebar'
+      .content-wrapper
+        = yield

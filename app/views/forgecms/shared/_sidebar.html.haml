@@ -1,0 +1,31 @@
+%aside.main-sidebar
+  .sidebar
+    .sidebar-header
+      .logo
+        ForgeCMS
+      .sidebar-toggle
+        %span
+    .user-panel
+      =image_tag 'https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/128.jpg'
+      %span.user-name= current_user.first_name
+    %ul
+      %li
+        = link_to forgecms.dashboard_path, class: ("active" if controller.controller_name=="dashboard") do
+          %i.fa.fa-dashboard
+          %span Dashboard
+      %li
+        = link_to forgecms.posts_path, class: ("active" if controller.controller_name=="posts") do
+          %i.fa.fa-list
+          %span Posts
+      %li
+        = link_to '#' do
+          %i.fa.fa-comment-o
+          %span Comments
+      %li
+        = link_to '#' do
+          %i.fa.fa-users
+          %span Users
+      %li
+        = link_to '#' do
+          %i.fa.fa-gear
+          %span Settings

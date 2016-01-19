@@ -1,0 +1,6 @@
+=form_for @post do |f|
+  .post-sidebar
+    = f.submit "Create Post", { class: "submit btn btn-primary btn-flat" }
+  .post-content
+    = f.text_field :title, { class: "title", placeholder: "New Post", autocomplete: "off" }
+    = f.text_area :body, { class: "body" }
