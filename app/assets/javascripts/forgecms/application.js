@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+//= require vendor/summernote
+//= require vendor/toastr
+//= require_tree .

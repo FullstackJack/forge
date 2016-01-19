@@ -1,6 +1,7 @@
-@import 'posts';
-
-.main-header {
-  background-color: #F3F3F3;
-  max-height: 100px;
-}
+@import 'variables';
+@import 'admin/buttons';
+@import 'admin/inputs';
+@import 'admin/posts';
+@import 'admin/sidebar';
+@import 'admin/layout';
+@import 'admin/header';

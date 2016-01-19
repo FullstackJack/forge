@@ -1,0 +1,14 @@
+.admin {
+  .main-header {
+    display: none;
+    max-height: 100px;
+    position: relative;
+
+    & > .navbar {
+      background-color: $header-bg-color;
+      position: relative;
+      margin-left: $sidebar-full-width;
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+html {
+  font-size: 1em;
+  height: 100%;
+}
+
+body.admin {
+  height: 100%;
+}
+
+.admin {
+  .wrapper {
+    height: 100%;
+  }
+  .content-wrapper {
+    background-color: #F3F3F3;
+    height: 100%;
+    //margin-top: -$navbar-height;
+    //padding-top: $navbar-height;
+    margin-left: 230px;
+
+    .page-header {
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      height: $header-height;
+
+      h2 {
+        margin: 0;
+        padding: 16px;
+        font-size: 1.4em;
+      }
+
+      .btn {
+        padding: 8px 12px;
+        margin: 9px;
+        font-size: 0.9em;
+      }
+    }
+
+    .page-content {
+      height: 100%;
+      margin-top: -$navbar-height;
+      padding-top: $navbar-height;
+    }
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  /* flex-flow: column; */
+
+  .flex-item {
+    flex: 1 auto;
+  }
+}

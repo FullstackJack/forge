@@ -1,0 +1,13 @@
+// Header
+$header-bg-color: white;
+$header-border-color: #F1F1F1;
+$header-height: 55px;
+
+// Sidebar
+$sidebar-full-width: 230px;
+//$sidebar-bg-color: #2D2F3A;
+$sidebar-bg-color: #F6F6F6;
+//$sidebar-link-color: white;
+$sidebar-link-color: #2D2F3A;
+// $sidebar-link-bg-color: lighten($sidebar-bg-color, 5%);
+$sidebar-link-bg-color: darken($sidebar-bg-color, 5%);
