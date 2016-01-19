@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{ charset: "utf-8" }
+    %title ForgeCMS
+    = stylesheet_link_tag    "forgecms/application", media: "all"
+    = javascript_include_tag "forgecms/application"
+    = csrf_meta_tags
+  %body
+    .wrapper
+      .main-content
+        = yield
