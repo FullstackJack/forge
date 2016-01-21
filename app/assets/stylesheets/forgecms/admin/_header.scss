@@ -1,6 +1,5 @@
 .admin {
   .main-header {
-    display: none;
     max-height: 100px;
     position: relative;
 
@@ -9,6 +8,25 @@
       position: relative;
       margin-left: $sidebar-full-width;
       margin-bottom: 0;
+    }
+
+    .navbar-right {
+      margin-right: 0;
+    }
+
+    .user-dropdown {
+      .dropdown-toggle {
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      img {
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+      }
+      .user-name {
+        margin-left: 5px;
+      }
     }
   }
 }

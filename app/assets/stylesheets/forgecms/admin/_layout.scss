@@ -14,8 +14,8 @@ body.admin {
   .content-wrapper {
     background-color: #F3F3F3;
     height: 100%;
-    //margin-top: -$navbar-height;
-    //padding-top: $navbar-height;
+    margin-top: -$navbar-height;
+    padding-top: $navbar-height;
     margin-left: 230px;
 
     .page-header {
@@ -39,8 +39,8 @@ body.admin {
 
     .page-content {
       height: 100%;
-      margin-top: -$navbar-height;
-      padding-top: $navbar-height;
+      //margin-top: -$navbar-height;
+      //padding-top: $navbar-height;
     }
   }
 }

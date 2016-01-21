@@ -5,9 +5,6 @@
         ForgeCMS
       .sidebar-toggle
         %span
-    .user-panel
-      =image_tag 'https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/128.jpg'
-      %span.user-name= current_user.first_name
     %ul
       %li
         = link_to forgecms.dashboard_path, class: ("active" if controller.controller_name=="dashboard") do
