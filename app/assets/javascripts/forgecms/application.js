@@ -14,4 +14,5 @@
 //= require bootstrap-sprockets
 //= require vendor/summernote
 //= require vendor/toastr
+//= require vendor/jquery.timeago.js
 //= require_tree .

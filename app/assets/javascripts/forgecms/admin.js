@@ -3,4 +3,6 @@ $(document).ready(function() {
         disableResizeEditor: true,
         focus: true
     });
+    $('time.timeago').timeago();
 });
+
