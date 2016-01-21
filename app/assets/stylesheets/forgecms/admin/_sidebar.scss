@@ -2,22 +2,8 @@
   .main-sidebar {
     background-color: $sidebar-bg-color;
     min-height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: $sidebar-full-width;
-
-    .sidebar-header {
-      background-color: #F8F8F8;
-      font-size: 1.3em;
-      height: $header-height;
-      border-bottom: 1px solid $header-border-color;
-      .logo {
-        line-height: $header-height;
-        padding-left: 16px;
-        font-weight: bold;
-      }
-    }
+    flex: 0 0 auto;
 
     ul {
       list-style: none;

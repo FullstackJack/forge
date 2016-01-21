@@ -2,12 +2,21 @@
   .main-header {
     max-height: 100px;
     position: relative;
+    flex: 0 0 auto;
 
     & > .navbar {
       background-color: $header-bg-color;
       position: relative;
-      margin-left: $sidebar-full-width;
       margin-bottom: 0;
+    }
+
+    .navbar-brand {
+      background-color: #F8F8F8;
+      font-size: 1.3em;
+      height: $header-height;
+      .logo {
+        font-weight: bold;
+      }
     }
 
     .navbar-right {

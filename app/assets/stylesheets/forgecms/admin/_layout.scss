@@ -9,14 +9,17 @@ body.admin {
 
 .admin {
   .wrapper {
+    margin: 0;
     height: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
   }
   .content-wrapper {
     background-color: #F3F3F3;
     height: 100%;
-    margin-top: -$navbar-height;
-    padding-top: $navbar-height;
-    margin-left: 230px;
+    display: flex;
+    flex: 1 1 auto;
 
     .page-header {
       margin: 0;

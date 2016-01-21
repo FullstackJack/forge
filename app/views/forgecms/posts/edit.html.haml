@@ -1,6 +1,6 @@
 =form_for @post do |f|
-  .post-sidebar
-    = f.submit "Update Post", { class: "submit btn btn-primary btn-flat" }
   .post-content.flex-container
     = f.text_field :title, { class: "title", placeholder: "Post Title", autocomplete: "off"  }
     = f.text_area :body, { class: "body" }
+  .post-sidebar
+    = f.submit "Update Post", { class: "submit btn btn-primary btn-flat" }

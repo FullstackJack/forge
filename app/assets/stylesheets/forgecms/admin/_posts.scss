@@ -32,27 +32,26 @@
 
     form {
       height: 100%;
+      display: flex;
+      flex: 1 1 auto;
     }
 
     .post-sidebar {
       background-color: white;
-      padding-top: $navbar-height;
       height: 100%;
+      flex: 0 0 auto;
       width: 200px;
-      position: absolute;
-      top: 0;
-      right: 0;
     }
 
     .post-content {
       border-right: 1px solid #E6E6E6;
-      margin-right: 200px;
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
       -webkit-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column;
+      flex: 1 1 auto;
       height: 100%;
 
       .title {
