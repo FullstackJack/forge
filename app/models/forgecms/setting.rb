@@ -1,8 +1,5 @@
 module Forgecms
   class Setting < ActiveRecord::Base
-
-    def index
-
-    end
+    validates :name, presence: true
   end
 end
