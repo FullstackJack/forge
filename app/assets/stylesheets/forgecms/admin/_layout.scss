@@ -17,33 +17,43 @@ body.admin {
   }
   .content-wrapper {
     background-color: #F3F3F3;
-    height: 100%;
     display: flex;
     flex: 1 1 auto;
 
-    .page-header {
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      height: $header-height;
+    .page {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
 
-      h2 {
+      .page-header {
         margin: 0;
-        padding: 16px;
-        font-size: 1.4em;
-      }
+        padding: 0;
+        background-color: white;
+        height: $header-height;
+        flex: 0 0 auto;
 
-      .btn {
-        padding: 8px 12px;
-        margin: 9px;
-        font-size: 0.9em;
+        h2 {
+          margin: 0;
+          padding: 16px;
+          font-size: 1.4em;
+        }
+
+        .btn {
+          padding: 8px 12px;
+          margin: 9px;
+          font-size: 0.9em;
+        }
       }
     }
 
     .page-content {
-      height: 100%;
-      //margin-top: -$navbar-height;
-      //padding-top: $navbar-height;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      flex: 1 1 auto;
     }
   }
 }

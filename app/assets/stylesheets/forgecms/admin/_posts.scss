@@ -31,14 +31,12 @@
   &.edit, &.new {
 
     form {
-      height: 100%;
       display: flex;
       flex: 1 1 auto;
     }
 
     .post-sidebar {
       background-color: white;
-      height: 100%;
       flex: 0 0 auto;
       width: 200px;
     }
@@ -52,7 +50,6 @@
       -ms-flex-direction: column;
       flex-direction: column;
       flex: 1 1 auto;
-      height: 100%;
 
       .title {
         height: initial;
