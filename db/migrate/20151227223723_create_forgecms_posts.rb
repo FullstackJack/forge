@@ -5,6 +5,8 @@ class CreateForgecmsPosts < ActiveRecord::Migration
       t.integer :category_id
       t.string :title
       t.text :body
+      t.integer :status
+      t.integer :visibility
       t.date :publish_date
       t.string :slug
       t.timestamps null: false
