@@ -2,6 +2,9 @@ module Forgecms
   class Post < ActiveRecord::Base
     validates :title, presence: true
 
+    enum status: [ :draft, :review, :published ]
+    enum visibility: [ :public, :protected, :private ]
+
     has_many :forgecms_comments, :class_name => 'Forgecms::Comment'
     has_many :forgecms_post_revisions, :class_name => 'Forgecms::PostRevision'
     belongs_to :forgecms_category, :class_name => 'Forgecms::Category'
