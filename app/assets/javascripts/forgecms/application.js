@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require vendor/summernote
 //= require vendor/toastr
 //= require vendor/jquery.timeago.js

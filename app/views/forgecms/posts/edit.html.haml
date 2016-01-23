@@ -1,6 +1,5 @@
-=form_for @post do |f|
+=form_for @post, :builder => Forgecms::FormBuilder do |form|
   .post-content.flex-container
-    = f.text_field :title, { class: "title", placeholder: "Post Title", autocomplete: "off"  }
-    = f.text_area :body, { class: "body" }
-  .post-sidebar
-    = f.submit "Update Post", { class: "submit btn btn-primary btn-flat" }
+    = form.text_field :title, { class: "title", placeholder: "Post Title", autocomplete: "off"  }
+    = form.text_area :body, { class: "body" }
+  =render 'post_sidebar', :form => form

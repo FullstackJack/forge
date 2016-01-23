@@ -38,7 +38,8 @@
     .post-sidebar {
       background-color: white;
       flex: 0 0 auto;
-      width: 200px;
+      padding: 20px;
+      width: 250px;
     }
 
     .post-content {
@@ -50,6 +51,12 @@
       -ms-flex-direction: column;
       flex-direction: column;
       flex: 1 1 auto;
+
+      .form-control {
+        border-radius: 0;
+        border: 0;
+        border-bottom: 1px solid #E6E6E6;
+      }
 
       .title {
         height: initial;

@@ -1,0 +1,6 @@
+.post-sidebar
+  .form-group
+    = save_button(form)
+  .form-group
+    = form.label :published_at, "Schedule Post"
+    = form.datetime_select :published_at
