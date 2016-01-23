@@ -7,7 +7,7 @@ class CreateForgecmsPosts < ActiveRecord::Migration
       t.text :body
       t.integer :status, default: 0
       t.integer :visibility, default: 0
-      t.datetime :publish_date
+      t.datetime :published_at
       t.string :slug
       t.timestamps null: false
     end
