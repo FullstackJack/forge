@@ -2,25 +2,11 @@
 
   &.index {
     ul.listview {
-      list-style: none;
-      margin: 0;
-      padding: 0;
 
       li {
-        color: #303030;
-        border-bottom: 1px solid #F6F6F6;
-        background-color: white;
-        display: block;
-        padding: 15px;
-        width: 100%;
 
         .post-title {
           font-weight: bold;
-        }
-
-        a {
-          color: #303030;
-          text-decoration: none;
         }
       }
     }
