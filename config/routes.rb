@@ -1,7 +1,11 @@
 Forgecms::Engine.routes.draw do
 
   devise_for :user, class_name: "Forgecms::User", module: :users, controllers: {
-    registrations: 'users/registrations'
+    confirmations:  'forgecms/users/confirmations',
+    passwords:      'forgecms/users/passwords',
+    registrations:  'forgecms/users/registrations',
+    sessions:       'forgecms/users/sessions',
+    unlocks:        'forgecms/users/unlocks'
   }
 
   scope :admin do
@@ -10,9 +14,9 @@ Forgecms::Engine.routes.draw do
   end
 
   devise_scope :user do
-    get "/signup" => "/users/registrations#new"
-    get "/login" => "/users/sessions#new"
-    get "/logout" => "/users/sessions#destroy"
+    get "/signup" => "/forgecms/users/registrations#new"
+    get "/login" => "/forgecms/users/sessions#new"
+    get "/logout" => "/forgecms/users/sessions#destroy"
   end
 
 
