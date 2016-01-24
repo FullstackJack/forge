@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sprockets-rails', '>= 2.1.4'
   s.add_dependency 'font-awesome-sass', '~> 4.5.0'
   s.add_dependency 'devise', '>= 3.5.2'
+  s.add_dependency 'pundit', '~> 1.1.0'
   s.add_dependency 'haml-rails', '~> 0.9'
   s.add_dependency 'momentjs-rails', '>= 2.9.0'
   s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
