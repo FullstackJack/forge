@@ -1,6 +1,6 @@
 module Forgecms
   class User < ActiveRecord::Base
-    enum role: [:user, :reviewer, :admin]
+    enum role: [:user, :reviewer, :author, :admin]
 
     after_initialize :set_default_role, :if => :new_record?
 
