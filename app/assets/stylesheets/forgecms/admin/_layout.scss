@@ -60,10 +60,12 @@ body.admin {
 
 .flex-container {
   display: flex;
-  flex-direction: column;
-  /* flex-flow: column; */
 
-  .flex-item {
-    flex: 1 auto;
+  .flex-fluid {
+    flex: 1 1 auto;
+  }
+
+  .flex-static {
+    flex: 0 0 auto;
   }
 }
