@@ -3,7 +3,7 @@ module Forgecms
     validates :title, presence: true
 
     enum status: [ :draft, :review, :published ]
-    enum visibility: [ :public, :protected, :private ]
+    enum visibility: [ :visible, :password_protected, :hidden ]
 
     has_many :forgecms_comments, :class_name => 'Forgecms::Comment'
     has_many :forgecms_post_revisions, :class_name => 'Forgecms::PostRevision'
