@@ -11,6 +11,7 @@ Forgecms::Engine.routes.draw do
   scope :admin do
     get '/', to: 'dashboard#index', as: :dashboard
     resources :posts
+    resources :users
   end
 
   devise_scope :user do

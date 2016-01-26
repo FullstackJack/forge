@@ -14,7 +14,7 @@
           %i.fa.fa-comment-o
           %span Comments
       %li
-        = link_to '#' do
+        = link_to forgecms.users_path, class: ("active" if controller.controller_name=="users") do
           %i.fa.fa-users
           %span Users
       %li
