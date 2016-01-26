@@ -41,7 +41,7 @@ module Forgecms
     private
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :published_at, :slug)
     end
   end
 end

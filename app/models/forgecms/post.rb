@@ -1,6 +1,9 @@
 module Forgecms
   class Post < ActiveRecord::Base
+    before_validation :set_default_slug
+
     validates :title, presence: true
+    validates :slug, uniqueness: true
 
     enum status: [ :draft, :review, :published ]
     enum visibility: [ :visible, :password_protected, :hidden ]
@@ -19,11 +22,16 @@ module Forgecms
       str = str.split[0...30].join(' ')
     end
 
-    protected
-      def create_revision
-      end
+    def set_default_slug
+      self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') if self.slug.empty?
+    end
 
-      def destroy_revisions
-      end
+    protected
+
+    def create_revision
+    end
+
+    def destroy_revisions
+    end
   end
 end
