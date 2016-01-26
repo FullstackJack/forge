@@ -12,5 +12,9 @@ module Forgecms
     def set_default_role
       self.role ||= :user
     end
+
+    def full_name
+      "#{self.first_name} #{self.last_name}"
+    end
   end
 end
