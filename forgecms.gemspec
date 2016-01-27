@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'pundit', '~> 1.1.0'
   s.add_dependency 'haml-rails', '~> 0.9'
   s.add_dependency 'momentjs-rails', '>= 2.9.0'
+  s.add_dependency 'react-rails', '~> 1.5.0'
   s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
   s.add_development_dependency 'mysql2'
