@@ -11,5 +11,7 @@ class CreateForgecmsPosts < ActiveRecord::Migration
       t.string :slug
       t.timestamps null: false
     end
+
+    add_index :forgecms_posts, :slug
   end
 end
