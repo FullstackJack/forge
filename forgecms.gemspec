@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency 'rails', '~> 4.2.4'
   s.add_dependency 'jquery-rails', '~> 4.0.5'
@@ -29,6 +29,13 @@ Gem::Specification.new do |s|
   s.add_dependency 'react-rails', '~> 1.5.0'
   s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
-  s.add_development_dependency 'mysql2'
   s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'capybara'
+  s.add_development_dependency 'factory_girl_rails'
+
+  # Require MySQL adapter for testing
+  s.add_development_dependency 'mysql2'
+
+  # Require timezone info for Windows
+  s.add_development_dependency 'tzinfo-data'
 end
