@@ -1,4 +1,5 @@
 class Forgecms::Users::UnlocksController < Devise::UnlocksController
+  skip_after_action :verify_authorized
   # GET /resource/unlock/new
   # def new
   #   super

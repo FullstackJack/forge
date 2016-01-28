@@ -11,6 +11,7 @@ module Forgecms
     has_many :forgecms_comments, :class_name => 'Forgecms::Comment'
     has_many :forgecms_post_revisions, :class_name => 'Forgecms::PostRevision'
     belongs_to :forgecms_category, :class_name => 'Forgecms::Category'
+    belongs_to :user, class_name: 'Forgecms::User'
 
     after_save :create_revision
     after_destroy :destroy_revisions
