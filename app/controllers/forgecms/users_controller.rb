@@ -6,15 +6,18 @@ module Forgecms
 
     def index
       @users = User.all
+      authorize @users
     end
 
     def new
       @user = User.new
+      authorize @user
     end
 
     def create
       @user = User.new(user_params)
-      if @post.save
+      authorize @user
+      if @user.save
         redirect_to edit_user_path(@user)
       else
         flash[:alert] = 'User not saved!'
@@ -24,10 +27,12 @@ module Forgecms
 
     def edit
       @user = User.find(params[:id])
+      authorize @user
     end
 
     def update
       user = User.find(params[:id])
+      authorize user
 
       # Remove password from params if blank to prevent validation error.
       if params[:user][:password].blank?
@@ -42,7 +47,9 @@ module Forgecms
     end
 
     def delete
-      User.delete(params[:id])
+      user = User.find(params[:id])
+      authorize user
+      user.destroy
     end
 
     protected
