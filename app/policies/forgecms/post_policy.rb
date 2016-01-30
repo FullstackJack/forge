@@ -7,7 +7,7 @@ module Forgecms
     end
 
     def index?
-      user.admin? || user.author?
+      user.author? || user.admin?
     end
 
     def new?

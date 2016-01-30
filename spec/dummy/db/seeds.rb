@@ -1,0 +1,1 @@
+Forgecms::Engine.load_seed

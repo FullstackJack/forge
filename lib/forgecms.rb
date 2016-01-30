@@ -1,4 +1,5 @@
 require "forgecms/engine"
+require "jquery-rails"
 require "bootstrap-sass"
 require "font-awesome-sass"
 require "devise"
