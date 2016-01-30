@@ -127,6 +127,7 @@ GEM
     minitest (5.8.4)
     momentjs-rails (2.11.0)
       railties (>= 3.1)
+    mysql2 (0.4.2)
     mysql2 (0.4.2-x86-mingw32)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -229,3 +230,6 @@ DEPENDENCIES
   mysql2
   rspec-rails
   tzinfo-data
+
+BUNDLED WITH
+   1.10.6
