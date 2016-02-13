@@ -26,6 +26,10 @@ module Forgecms
       user.admin? || record.user == user
     end
 
+    def show?
+      user.admin? || record.user == user
+    end
+
     def delete?
       user.admin? || record.user == user
     end

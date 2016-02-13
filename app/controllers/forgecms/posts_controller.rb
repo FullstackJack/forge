@@ -38,6 +38,12 @@ module Forgecms
       redirect_to edit_post_path(post)
     end
 
+    def show
+      @post = Post.find(params[:id])
+      authorize @post
+      render json: @post
+    end
+
     def delete
       post = Post.find(params[:id])
       authorize post
