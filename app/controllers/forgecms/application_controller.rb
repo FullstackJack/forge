@@ -1,5 +1,6 @@
 module Forgecms
   class ApplicationController < ActionController::Base
+    include DeviseTokenAuth::Concerns::SetUserByToken
     include Pundit
     before_action :authenticate_user!
     after_action :verify_authorized

@@ -39,9 +39,9 @@ module Forgecms
     end
 
     def show
-      @post = Post.find(params[:id])
-      authorize @post
-      render json: @post
+      post = Post.find(params[:id])
+      authorize post
+      render json: post
     end
 
     def delete
