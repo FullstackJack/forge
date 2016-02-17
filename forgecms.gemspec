@@ -22,12 +22,21 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails', '>= 3.2'
   s.add_dependency 'sprockets-rails', '>= 2.1.4'
   s.add_dependency 'font-awesome-sass', '~> 4.5.0'
-  s.add_dependency 'devise', '>= 3.5.2'
-  s.add_dependency 'pundit', '~> 1.1.0'
   s.add_dependency 'haml-rails', '~> 0.9'
   s.add_dependency 'momentjs-rails', '>= 2.9.0'
-  s.add_dependency 'react-rails', '~> 1.5.0'
   s.add_dependency 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
+  # Authentication
+  s.add_dependency 'devise', '>= 3.5.2'
+  s.add_dependency 'devise_token_auth'
+  s.add_dependency 'omniauth', '~> 1.3.0'
+
+  # Authorization
+  s.add_dependency 'pundit', '~> 1.1.0'
+
+  # JSON
+  s.add_dependency 'active_model_serializers', '~> 0.10.0.rc4'
+
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'

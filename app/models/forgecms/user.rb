@@ -7,9 +7,12 @@ module Forgecms
     after_initialize :set_default_role, :if => :new_record?
 
     # Include default devise modules. Others available are:
-    # :confirmable, :lockable, :timeoutable and :omniauthable
+    # :confirmable, :lockable, :timeoutable
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
+           #:omniauthable
+
+    include DeviseTokenAuth::Concerns::User
 
     def set_default_role
       self.role ||= :user
