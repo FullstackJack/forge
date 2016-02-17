@@ -7,6 +7,7 @@ module Forgecms
     def index
       @users = User.all
       authorize @users
+      render json: @users
     end
 
     def new
@@ -44,6 +45,12 @@ module Forgecms
         flash[:alert] = 'Update failed!'
       end
       redirect_to edit_user_path(user)
+    end
+
+    def show
+      @user = User.find(params[:id])
+      authorize @user
+      render json: @user
     end
 
     def delete
