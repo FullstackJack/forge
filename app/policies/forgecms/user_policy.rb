@@ -13,5 +13,9 @@ module Forgecms
     def edit?
       user.admin?
     end
+
+    def show?
+      user.admin?
+    end
   end
 end
