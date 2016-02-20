@@ -1,0 +1,3 @@
+= ForgeCMS
+
+A rails blog engine.
