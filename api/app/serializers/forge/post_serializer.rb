@@ -1,7 +1,7 @@
-module Forgecms
+module Forge
   class PostSerializer < ActiveModel::Serializer
     attributes :id, :slug, :title, :body
 
-    belongs_to :forgecms_user, :class_name => 'Forgecms::User'
+    belongs_to :forge_user, :class_name => 'Forge::User'
   end
 end

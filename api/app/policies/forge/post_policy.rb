@@ -1,4 +1,4 @@
-module Forgecms
+module Forge
   class PostPolicy < ApplicationPolicy
     class Scope < Scope
       def resolve
