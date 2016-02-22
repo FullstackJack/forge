@@ -4,7 +4,7 @@ module Forge
       include DeviseTokenAuth::Concerns::SetUserByToken
       include Pundit
 
-      before_action :authenticate_forge_api_user!
+      before_action :authenticate_forge_user!, except: [:new, :create]
       after_action :verify_authorized
 
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -13,11 +13,11 @@ module Forge
 
       def user_not_authorized
         flash[:alert] = "You are not authorized to perform that action."
-        redirect_to(request.referrer || forgecms.dashboard_path)
+        redirect_to(request.referrer || forge_api.dashboard_path)
       end
 
       def after_sign_in_path_for(resource)
-        forgecms.dashboard_path
+        forge_api.dashboard_path
       end
     end
   end

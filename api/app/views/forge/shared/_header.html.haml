@@ -10,7 +10,7 @@
         %li.dropdown.user-dropdown
           =link_to '#', { class: 'dropdown-toggle', data: { toggle: 'dropdown' } } do
             =image_tag 'https://s3.amazonaws.com/uifaces/faces/twitter/jonohunt/128.jpg'
-            %span.user-name= current_user.first_name
+            %span.user-name= current_forge_user.first_name
             %span.caret
           %ul.dropdown-menu
             %li= link_to 'Profile', '#'

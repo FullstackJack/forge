@@ -1,4 +1,4 @@
-module Forgecms
+module Forge
   class Post < ActiveRecord::Base
     before_validation :set_default_slug
 
@@ -8,10 +8,10 @@ module Forgecms
     enum status: [ :draft, :review, :published ]
     enum visibility: [ :visible, :password_protected, :hidden ]
 
-    has_many :forgecms_comments, :class_name => 'Forgecms::Comment'
-    has_many :forgecms_post_revisions, :class_name => 'Forgecms::PostRevision'
-    belongs_to :forgecms_category, :class_name => 'Forgecms::Category'
-    belongs_to :user, class_name: 'Forgecms::User'
+    has_many :comments, :class_name => 'Forge::Comment'
+    has_many :post_revisions, :class_name => 'Forge::PostRevision'
+    belongs_to :category, :class_name => 'Forge::Category'
+    belongs_to :user, class_name: 'Forge::User'
 
     after_save :create_revision
     after_destroy :destroy_revisions

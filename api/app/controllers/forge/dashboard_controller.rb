@@ -1,10 +1,10 @@
-require_dependency "forgecms/application_controller"
+require_dependency "forge/api/application_controller"
 
-module Forgecms
+module Forge
   class DashboardController < ApplicationController
-    layout "forgecms/admin"
+    layout "forge/admin"
     def index
-      skip_authorization
+      #skip_authorization
     end
   end
 end

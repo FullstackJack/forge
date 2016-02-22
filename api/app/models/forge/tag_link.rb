@@ -1,4 +1,4 @@
-module Forgecms
+module Forge
   class TagLink < ActiveRecord::Base
     belongs_to :target, polymorphic: true
     belongs_to :tag
