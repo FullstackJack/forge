@@ -6,7 +6,7 @@ module Forge
       RSpec.describe PostsController, type: :controller do
         describe "#GET #create" do
           it "creates a new post" do
-
+            user = build(:user)
           end
         end
       end
