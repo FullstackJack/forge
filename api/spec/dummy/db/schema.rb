@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160102064729) do
+ActiveRecord::Schema.define(version: 20160222023432) do
 
-  create_table "forgecms_categories", force: :cascade do |t|
+  create_table "forge_categories", force: :cascade do |t|
     t.integer  "post_id",    limit: 4
     t.integer  "user_id",    limit: 4
     t.string   "body",       limit: 255
@@ -21,21 +21,21 @@ ActiveRecord::Schema.define(version: 20160102064729) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "forgecms_comments", force: :cascade do |t|
+  create_table "forge_comments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "body",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "forgecms_post_revisions", force: :cascade do |t|
+  create_table "forge_post_revisions", force: :cascade do |t|
     t.integer  "post_id",    limit: 4
     t.string   "title",      limit: 255
     t.text     "body",       limit: 65535
     t.datetime "created_at",               null: false
   end
 
-  create_table "forgecms_posts", force: :cascade do |t|
+  create_table "forge_posts", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
     t.integer  "category_id",  limit: 4
     t.string   "title",        limit: 255
@@ -47,39 +47,59 @@ ActiveRecord::Schema.define(version: 20160102064729) do
     t.integer  "post_id",      limit: 4
   end
 
-  add_index "forgecms_posts", ["post_id"], name: "index_forgecms_posts_on_post_id", using: :btree
+  add_index "forge_posts", ["post_id"], name: "index_forge_posts_on_post_id", using: :btree
 
-  create_table "forgecms_settings", force: :cascade do |t|
+  create_table "forge_settings", force: :cascade do |t|
     t.string   "label",      limit: 255
     t.string   "value",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "forgecms_tags", force: :cascade do |t|
+  create_table "forge_tag_links", force: :cascade do |t|
+    t.integer  "tag_id",      limit: 4
+    t.integer  "target_id",   limit: 4
+    t.string   "target_type", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "forge_tags", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
-  create_table "forgecms_users", force: :cascade do |t|
-    t.string   "first_name",             limit: 255, default: "", null: false
-    t.string   "last_name",              limit: 255, default: "", null: false
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+  create_table "forge_users", force: :cascade do |t|
+    t.string   "first_name",             limit: 255,   default: "",      null: false
+    t.string   "last_name",              limit: 255,   default: "",      null: false
+    t.text     "bio",                    limit: 65535
+    t.string   "website",                limit: 255
+    t.string   "email",                  limit: 255,   default: "",      null: false
+    t.string   "encrypted_password",     limit: 255,   default: "",      null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.integer  "role",                   limit: 4
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "provider",               limit: 255,   default: "email", null: false
+    t.string   "uid",                    limit: 255,   default: "",      null: false
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.text     "tokens",                 limit: 65535
   end
 
-  add_index "forgecms_users", ["email"], name: "index_forgecms_users_on_email", unique: true, using: :btree
-  add_index "forgecms_users", ["reset_password_token"], name: "index_forgecms_users_on_reset_password_token", unique: true, using: :btree
+  add_index "forge_users", ["confirmation_token"], name: "index_forge_users_on_confirmation_token", unique: true, using: :btree
+  add_index "forge_users", ["email"], name: "index_forge_users_on_email", unique: true, using: :btree
+  add_index "forge_users", ["reset_password_token"], name: "index_forge_users_on_reset_password_token", unique: true, using: :btree
+  add_index "forge_users", ["uid", "provider"], name: "index_forge_users_on_uid_and_provider", unique: true, using: :btree
 
 end

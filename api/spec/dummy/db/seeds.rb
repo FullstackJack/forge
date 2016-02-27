@@ -1,1 +1,1 @@
-Forgecms::Engine.load_seed
+Forge::Engine.load_seed

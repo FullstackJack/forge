@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user, class: Forgecms::User do
+  factory :user, class: Forge::User do
     email "user@example.com"
     first_name "User"
     last_name "Person"
@@ -11,7 +11,7 @@ FactoryGirl.define do
     #confirmed_at Date.today
   end
 
-  factory :author_user, class: Forgecms::User do
+  factory :author_user, class: Forge::User do
     email "author@example.com"
     first_name "Author"
     last_name "Person"
