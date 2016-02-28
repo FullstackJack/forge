@@ -1,3 +1,4 @@
+require 'database_cleaner'
 require 'devise'
 require 'factory_girl_rails'
 

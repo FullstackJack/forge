@@ -61,30 +61,24 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.3)
       execjs
       json
     bcrypt (3.1.10)
+    bcrypt (3.1.10-x86-mingw32)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     bootstrap3-datetimepicker-rails (4.17.37)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
-    capybara (2.6.2)
-      addressable
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     concurrent-ruby (1.0.0)
+    database_cleaner (1.5.1)
     decent_exposure (2.3.3)
     devise (3.5.6)
       bcrypt (~> 3.0)
@@ -110,6 +104,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faker (1.6.3)
+      i18n (~> 0.5)
     font-awesome-sass (4.5.0)
       sass (>= 3.2)
     globalid (0.3.6)
@@ -229,16 +225,15 @@ GEM
       tzinfo (>= 1.0.0)
     warden (1.2.6)
       rack (>= 1.0)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
   x86-mingw32
 
 DEPENDENCIES
-  capybara
+  database_cleaner
   factory_girl_rails
+  faker
   forge_api!
   mysql2
   rspec-rails

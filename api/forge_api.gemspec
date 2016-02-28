@@ -38,12 +38,11 @@ Gem::Specification.new do |s|
   # JSON
   s.add_dependency 'active_model_serializers', '~> 0.10.0.rc4'
 
-
+  # Testing
+  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'faker'
   s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'capybara'
   s.add_development_dependency 'factory_girl_rails'
-
-  # Require MySQL adapter for testing
   s.add_development_dependency 'mysql2'
 
   # Require timezone info for Windows
