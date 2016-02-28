@@ -9,6 +9,12 @@ module Forge
 
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+      protected
+
+      def pundit_user
+        current_forge_user
+      end
+
       private
 
       def user_not_authorized

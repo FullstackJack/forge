@@ -20,11 +20,11 @@ module Forge
       # Strip HTML tags
       str = ActionController::Base.helpers.strip_tags(body)
       # Limit the length of words.
-      str = str.split[0...30].join(' ')
+      str.split[0...30].join(' ')
     end
 
     def set_default_slug
-      self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') if self.slug.empty?
+      self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') if self.slug.nil?
     end
 
     protected

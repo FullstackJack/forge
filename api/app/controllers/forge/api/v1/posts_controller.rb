@@ -4,7 +4,6 @@ module Forge
   module Api
     module V1
       class PostsController < Forge::Api::ApplicationController
-        layout "forgecms/admin"
 
         def index
           @posts = Post.all
@@ -18,7 +17,7 @@ module Forge
 				end
 
 				def create
-					@post = current_user.posts.build(post_params)
+					@post = current_forge_user.posts.build(post_params)
 					authorize @post
 					if @post.save
 						redirect_to edit_post_path(@post)
