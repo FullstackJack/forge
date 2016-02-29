@@ -1,9 +1,7 @@
-#require_dependency 'forge/api/application_controller'
-
 module Forge
   module Api
     module V1
-      class PostsController < Forge::Api::ApplicationController
+      class PostsController < Forge::Api::BaseController
 
         def index
           @posts = Post.all

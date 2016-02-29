@@ -1,6 +1,6 @@
 module Forge
   module Api
-    class ApplicationController < ActionController::Base
+    class BaseController < ActionController::Base
       include DeviseTokenAuth::Concerns::SetUserByToken
       include Pundit
 
@@ -18,8 +18,19 @@ module Forge
       private
 
       def user_not_authorized
-        flash[:alert] = "You are not authorized to perform that action."
-        redirect_to(request.referrer || forge_api.dashboard_path)
+        # Clear the previous response body to avoid a DoubleRenderError
+        # when redirecting or rendering another view
+        self.response_body = nil
+
+        render json: {
+          errors: [
+            {
+              status: 401,
+              title: "Not Authorized",
+              detail: "You are not authorized to perform that action."
+            }
+          ]
+        }, status: 401
       end
 
       def after_sign_in_path_for(resource)

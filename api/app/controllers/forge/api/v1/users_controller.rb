@@ -1,10 +1,7 @@
-require_dependency "forge/api/application_controller"
-
 module Forge
   module Api
     module V1
-      class UsersController < ApplicationController
-        layout "forgecms/admin"
+      class UsersController < Forge::Api::BaseController
 
         def index
           @users = User.all
