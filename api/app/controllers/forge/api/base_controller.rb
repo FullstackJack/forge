@@ -25,12 +25,12 @@ module Forge
         render json: {
           errors: [
             {
-              status: 401,
+              status: 403,
               title: "Not Authorized",
               detail: "You are not authorized to perform that action."
             }
           ]
-        }, status: 401
+        }, status: 403
       end
 
       def after_sign_in_path_for(resource)
