@@ -8,6 +8,7 @@ module Forge
       after_action :verify_authorized
 
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+      rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
       protected
 
@@ -30,7 +31,21 @@ module Forge
               detail: "You are not authorized to perform that action."
             }
           ]
-        }, status: 403
+        }, status: :forbidden
+      end
+
+      def record_not_found
+        self.response_body = nil
+
+        render json: {
+          errors: [
+            {
+              status: 404,
+              title: "Not Found",
+              detail: "The resource you requested cound not be found."
+            }
+          ]
+        }, status: :not_found
       end
 
       def after_sign_in_path_for(resource)

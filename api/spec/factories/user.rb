@@ -1,6 +1,11 @@
+require 'faker'
+
 FactoryGirl.define do
+
+  sequence(:email) { |n| "user#{n}@example.com" }
+
   factory :user, class: Forge::User do
-    email "user@example.com"
+    email { FactoryGirl.generate(:email) }
     first_name "User"
     last_name "Person"
     password "password"
@@ -12,7 +17,7 @@ FactoryGirl.define do
   end
 
   factory :author_user, class: Forge::User do
-    email "author@example.com"
+    email { FactoryGirl.generate(:email) }
     first_name "Author"
     last_name "Person"
     password "password"
@@ -21,7 +26,7 @@ FactoryGirl.define do
   end
 
   factory :admin_user, class: Forge::User do
-    email "admin@example.com"
+    email { FactoryGirl.generate(:email) }
     first_name "Admin"
     last_name "Person"
     password "password"

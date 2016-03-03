@@ -1,7 +1,9 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :post, class: Forge::Post do
-    title "My First Post"
-    body "It was the best of times, it was the worst of times..."
-    user
+    title { Faker::Lorem.words(8).join(' ') }
+    body { Faker::Lorem.sentence }
+    association :user
   end
 end
