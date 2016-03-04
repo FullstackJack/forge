@@ -10,12 +10,16 @@ module Forge
       user.admin?
     end
 
-    def edit?
+    def update?
       user.admin?
     end
 
     def show?
       user.admin?
+    end
+
+    def destroy?
+      user.admin? && user.id != record.id
     end
   end
 end

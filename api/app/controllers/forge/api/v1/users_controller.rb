@@ -41,9 +41,8 @@ module Forge
           end
 
           if user.update(user_params)
-            flash[:alert] = 'Update failed!'
+            render json: user
           end
-          redirect_to edit_user_path(user)
         end
 
         def show
@@ -52,10 +51,12 @@ module Forge
           render json: @user
         end
 
-        def delete
+        def destroy
           user = User.find(params[:id])
           authorize user
-          user.destroy
+          if user.destroy
+            head :no_content, status: 204
+          end
         end
 
         protected

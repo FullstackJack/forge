@@ -48,6 +48,7 @@ describe Forge::Api::V1::PostsController do
     it "responds with success message" do
       post = create :post, { title: "This Is My First Post" }
       patch :update, id: post.id, post: { title: "This Is An Edit" }
+      expect(response.status).to eq(200);
       expect(json["data"]["attributes"]["title"]).to eq("This Is An Edit")
     end
   end
