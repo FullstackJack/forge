@@ -1,0 +1,3 @@
+describe PostPolicy do
+
+end

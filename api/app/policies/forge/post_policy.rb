@@ -10,16 +10,8 @@ module Forge
       user.author? || user.admin?
     end
 
-    def new?
-      user.admin? || user.author?
-    end
-
     def create?
       user.admin? || user.author?
-    end
-
-    def edit?
-      user.admin? || record.user == user
     end
 
     def update?

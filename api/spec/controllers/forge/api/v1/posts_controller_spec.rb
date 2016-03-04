@@ -38,19 +38,25 @@ describe Forge::Api::V1::PostsController do
 
   describe "#POST #create" do
     it "responds with success message" do
-
+      post :create, { post: { title: "This Is My First Post", body: "It was the best of times, it was the worst of times..." } }
+      expect(response.status).to eq(201)
+      expect(json["data"]["attributes"]).to_not be_nil
     end
   end
 
   describe "#PATCH #update" do
     it "responds with success message" do
-
+      post = create :post, { title: "This Is My First Post" }
+      patch :update, id: post.id, post: { title: "This Is An Edit" }
+      expect(json["data"]["attributes"]["title"]).to eq("This Is An Edit")
     end
   end
 
   describe "#DELETE #destroy" do
     it "responds with success message" do
-
+      post = create :post, user: :admin_user
+      delete :destroy, id: post.id
+      expect(response.status).to eq(204)
     end
   end
 end

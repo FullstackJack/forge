@@ -18,8 +18,8 @@ module Forge
 					  render json: {
 							errors: [
 								{
-								  status: 400,
-									title: "Not Saved",
+                  status: 400,
+                  title: "Not Saved",
 									detail: "The post was not saved."
 								}
 							]
@@ -41,10 +41,12 @@ module Forge
 					render json: post
 				end
 
-				def delete
+				def destroy
 					post = Post.find(params[:id])
 					authorize post
-					post.destroy
+					if post.destroy
+						head :no_content
+					end
 				end
 
 				private
