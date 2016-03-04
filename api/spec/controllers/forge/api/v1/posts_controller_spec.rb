@@ -7,7 +7,7 @@ describe Forge::Api::V1::PostsController do
   let(:posts) { create_list(:post, 10, :user => author_user) }
 
   before do
-    set_authentication_headers_for(admin_user)
+    @tokens = set_authentication_headers_for(admin_user)
   end
 
   # before(:each) do
@@ -54,7 +54,7 @@ describe Forge::Api::V1::PostsController do
 
   describe "#DELETE #destroy" do
     it "responds with success message" do
-      post = create :post, user: :admin_user
+      post = create :post
       delete :destroy, id: post.id
       expect(response.status).to eq(204)
     end

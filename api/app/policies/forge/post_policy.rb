@@ -22,7 +22,7 @@ module Forge
       user.admin? || record.user == user
     end
 
-    def delete?
+    def destroy?
       user.admin? || record.user == user
     end
   end
