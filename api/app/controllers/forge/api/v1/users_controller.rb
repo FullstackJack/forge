@@ -4,14 +4,9 @@ module Forge
       class UsersController < Forge::Api::BaseController
 
         def index
-          @users = User.all
-          authorize @users
-          render json: @users
-        end
-
-        def new
-          @user = User.new
-          authorize @user
+          users = User.all
+          authorize users
+          render json: users
         end
 
         def create
@@ -20,11 +15,6 @@ module Forge
           if user.save
             render json: user, status: 201
           end
-        end
-
-        def edit
-          @user = User.find(params[:id])
-          authorize @user
         end
 
         def update
