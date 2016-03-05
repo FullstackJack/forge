@@ -15,13 +15,10 @@ module Forge
         end
 
         def create
-          @user = User.new(user_params)
-          authorize @user
-          if @user.save
-            redirect_to edit_user_path(@user)
-          else
-            flash[:alert] = 'User not saved!'
-            render 'forgecms/users/management/new'
+          user = User.new(user_params)
+          authorize user
+          if user.save
+            render json: user, status: 201
           end
         end
 

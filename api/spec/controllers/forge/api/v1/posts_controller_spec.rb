@@ -40,7 +40,7 @@ describe Forge::Api::V1::PostsController do
     it "responds with success message" do
       post :create, { post: { title: "This Is My First Post", body: "It was the best of times, it was the worst of times..." } }
       expect(response.status).to eq(201)
-      expect(json["data"]["attributes"]).to_not be_nil
+      expect(json["data"]["attributes"]["title"]).to eq("This Is My First Post")
     end
   end
 

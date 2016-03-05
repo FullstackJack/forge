@@ -13,9 +13,28 @@ describe Forge::Api::V1::UsersController do
   end
 
   describe "#POST #create" do
+    it "responds with success message" do
+      user = {
+        user: {
+          first_name: "Mark",
+          last_name: "Kelly",
+          password: "astr04life",
+          password_confirmation: "astr04life",
+          email: "mark_kelly@nasa.gov"
+        }
+      }
+      post :create, user
+      expect(response.status).to eq(201)
+      expect(json["data"]["attributes"]["first_name"]).to eq("Mark")
+    end
   end
 
   describe "#GET #show" do
+    it "responds with success message" do
+      user = create_user
+      get :show, id: user.id
+      expect(json["data"]["attributes"]["first_name"]).to eq("User")
+    end
   end
 
   describe "#PATCH #update" do
