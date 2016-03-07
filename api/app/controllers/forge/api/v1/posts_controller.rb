@@ -4,9 +4,11 @@ module Forge
       class PostsController < Forge::Api::BaseController
 
         def index
-          @posts = Post.all
-          authorize @posts
-          render json: @posts
+          page = params.fetch(:page, 1)
+          count = params.fetch(:count, 10)
+          posts = Post.page(page).per(count)
+          authorize posts
+          render json: posts
         end
 
         def create

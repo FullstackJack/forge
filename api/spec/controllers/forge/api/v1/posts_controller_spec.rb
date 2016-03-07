@@ -4,7 +4,7 @@ describe Forge::Api::V1::PostsController do
 
   let(:admin_user) { create :admin_user }
   let(:author_user) { create :author_user }
-  let(:posts) { create_list(:post, 10, :user => author_user) }
+  let(:posts) { create_list(:post, 15, :user => author_user) }
 
   before do
     @tokens = set_authentication_headers_for(admin_user)
@@ -15,10 +15,12 @@ describe Forge::Api::V1::PostsController do
   # end
 
   describe "#GET #index" do
-    it "responds with multiple posts resources" do
-      posts
-      get :index
-      expect(json["data"].count).to eq(10)
+    context "requesting post resourses" do
+      it "responds with multiple posts resources" do
+        posts
+        get :index
+        expect(json["data"].count).to eq(10)
+      end
     end
   end
 
