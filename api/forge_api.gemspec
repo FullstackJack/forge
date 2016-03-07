@@ -38,6 +38,9 @@ Gem::Specification.new do |s|
   # JSON
   s.add_dependency 'active_model_serializers', '~> 0.10.0.rc4'
 
+  # Pagination
+  s.add_dependency 'kaminari'
+
   # Testing
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'faker'

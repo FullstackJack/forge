@@ -4,12 +4,38 @@ describe Forge::Api::V1::UsersController do
 
   let(:create_user) { create :user }
   let(:create_admin) { create :admin_user }
+  let(:create_users) { create_list(:user, 15) }
 
   before do
     set_authentication_headers_for(create_admin)
   end
 
   describe "#GET #index" do
+    context "requesting a list of users" do
+      it "responds with many user resources" do
+        create_users
+        get :index
+        expect(json["data"]).to_not be_nil
+        expect(json["data"].count).to eq(10)
+        expect(response.status).to eq(200)
+      end
+    end
+
+    context "requesting page 2 of users" do
+      it "responds with 5 users" do
+        create_users
+        get :index, { page: 2 }
+        expect(json["data"].count).to eq(6)
+      end
+    end
+
+    context "requesting 15 users per page" do
+      it "responds with 15 users" do
+        create_users
+        get :index, { count: 15 }
+        expect(json["data"].count).to eq(15)
+      end
+    end
   end
 
   describe "#POST #create" do

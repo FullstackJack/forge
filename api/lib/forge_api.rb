@@ -10,6 +10,7 @@ require "bootstrap3-datetimepicker-rails"
 require "pundit"
 require "active_model_serializers"
 require "devise_token_auth"
+require "kaminari"
 
 module Forge
   module Api

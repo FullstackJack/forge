@@ -4,7 +4,9 @@ module Forge
       class UsersController < Forge::Api::BaseController
 
         def index
-          users = User.all
+          page = params.fetch(:page, 1)
+          count = params.fetch(:count, 10)
+          users = User.page(page).per(count)
           authorize users
           render json: users
         end
