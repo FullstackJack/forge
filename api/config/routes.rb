@@ -11,17 +11,8 @@ Forge::Api::Engine.routes.draw do
          token_validations:  'forge/api/v1/auth/token_validations'
       }
 
-      get '/', to: 'dashboard#index', as: :dashboard
       resources :posts
       resources :users
     end
   end
-
-  devise_scope :user do
-    get "/signup" => "/forge/api/users/registrations#new"
-    get "/login" => "/forge/api/users/sessions#new"
-    get "/logout" => "/forge/api/users/sessions#destroy"
-  end
-
-
 end
