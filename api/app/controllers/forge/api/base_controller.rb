@@ -4,7 +4,7 @@ module Forge
       include DeviseTokenAuth::Concerns::SetUserByToken
       include Pundit
 
-      before_action :authenticate_forge_user!, except: [:new, :create]
+      before_action :authenticate_forge_user!, except: [:create]
       after_action :verify_authorized
 
       rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
