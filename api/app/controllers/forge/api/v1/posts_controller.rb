@@ -6,9 +6,14 @@ module Forge
         def index
           page = params.fetch(:page, 1)
           count = params.fetch(:count, 10)
-          posts = Post.page(page).per(count)
-          authorize posts
-          render json: posts
+          if current_forge_user.present?
+            posts = policy_scope(Post)
+            authorize posts
+          else
+            posts = Post.where("publish_date < ?", Time.now)
+            skip_authorization
+          end
+          render json: posts.page(page).per(count)
         end
 
         def create
@@ -39,7 +44,13 @@ module Forge
 
         def show
           post = Post.find(params[:id])
-          authorize post
+          if current_forge_user.present?
+            authorize post
+          else
+            if post.publish_date.nil?
+              raise ActiveRecord::RecordNotFound
+            end
+          end
           render json: post
         end
 

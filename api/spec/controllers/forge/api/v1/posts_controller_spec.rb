@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Forge::Api::V1::PostsController do
+describe Forge::Api::V1::PostsController, :type => :controller do
 
   let(:admin_user) { create :admin_user }
   let(:author_user) { create :author_user }

@@ -2,7 +2,13 @@ module Forge
   class PostPolicy < ApplicationPolicy
     class Scope < Scope
       def resolve
-        scope
+        if user.admin?
+          scope.all
+        elsif user.author?
+          scope.where(user_id: user.id)
+        else
+          scope.where("publish_date < ?", Time.now)
+        end
       end
     end
 
