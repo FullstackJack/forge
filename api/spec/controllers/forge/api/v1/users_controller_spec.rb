@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Forge::Api::V1::UsersController do
+describe Forge::Api::V1::UsersController, :type => :controller do
 
   let(:create_user) { create :user }
   let(:create_admin) { create :admin_user }
