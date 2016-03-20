@@ -6,10 +6,12 @@ describe Forge::User, type: :model do
 
   let!(:user){ create :user }
 
-  context "virtual attributes" do
+  context "full name" do
 
-    it "interpolates the full name" do
-      expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+    describe "first name and last name are present" do
+      it "full name combines the first and last name" do
+        expect(user.full_name).to eq("#{user.first_name} #{user.last_name}")
+      end
     end
   end
 
