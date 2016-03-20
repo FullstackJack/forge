@@ -3,7 +3,7 @@ module Forge
     before_validation :set_default_slug
 
     validates :title, presence: true
-    validates :slug, uniqueness: true
+    validates :slug, presence: true, uniqueness: true
 
     enum status: [ :draft, :review, :published ]
     enum visibility: [ :visible, :password_protected, :hidden ]
@@ -24,7 +24,13 @@ module Forge
     end
 
     def set_default_slug
-      self.slug = self.title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '') if self.slug.nil?
+      if self.title.present? && self.slug.blank?
+        self.slug = generate_slug
+      end
+    end
+
+    def generate_slug
+      self.title.downcase.strip.gsub(/\s/, '-').gsub(/[^\w-]/, '')
     end
 
     protected
