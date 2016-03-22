@@ -7,7 +7,7 @@ module Forge
         elsif user.author?
           scope.where(user_id: user.id)
         else
-          scope.where("publish_date < ?", Time.now)
+          scope.where("published_at < ?", Time.now)
         end
       end
     end

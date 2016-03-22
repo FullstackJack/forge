@@ -11,95 +11,99 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222023432) do
+ActiveRecord::Schema.define(version: 20160321012405) do
 
   create_table "forge_categories", force: :cascade do |t|
-    t.integer  "post_id",    limit: 4
-    t.integer  "user_id",    limit: 4
-    t.string   "body",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forge_comments", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "body",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forge_post_revisions", force: :cascade do |t|
-    t.integer  "post_id",    limit: 4
-    t.string   "title",      limit: 255
-    t.text     "body",       limit: 65535
-    t.datetime "created_at",               null: false
+    t.integer  "post_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at", null: false
   end
 
   create_table "forge_posts", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "category_id",  limit: 4
-    t.string   "title",        limit: 255
-    t.text     "body",         limit: 65535
-    t.date     "publish_date"
-    t.string   "slug",         limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "post_id",      limit: 4
+    t.integer  "user_id"
+    t.integer  "category_id",  default: 0
+    t.string   "title"
+    t.text     "body"
+    t.integer  "status",       default: 0
+    t.integer  "visibility",   default: 0
+    t.datetime "published_at"
+    t.string   "slug"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "post_id"
+    t.integer  "published_by"
   end
 
-  add_index "forge_posts", ["post_id"], name: "index_forge_posts_on_post_id", using: :btree
+  add_index "forge_posts", ["post_id"], name: "index_forge_posts_on_post_id"
+  add_index "forge_posts", ["slug"], name: "index_forge_posts_on_slug"
 
   create_table "forge_settings", force: :cascade do |t|
-    t.string   "label",      limit: 255
-    t.string   "value",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.string   "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forge_tag_links", force: :cascade do |t|
-    t.integer  "tag_id",      limit: 4
-    t.integer  "target_id",   limit: 4
-    t.string   "target_type", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "tag_id"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "forge_tags", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "forge_users", force: :cascade do |t|
-    t.string   "first_name",             limit: 255,   default: "",      null: false
-    t.string   "last_name",              limit: 255,   default: "",      null: false
-    t.text     "bio",                    limit: 65535
-    t.string   "website",                limit: 255
-    t.string   "email",                  limit: 255,   default: "",      null: false
-    t.string   "encrypted_password",     limit: 255,   default: "",      null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "first_name",             default: "",      null: false
+    t.string   "last_name",              default: "",      null: false
+    t.text     "bio"
+    t.string   "website"
+    t.string   "email",                  default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,     default: 0,       null: false
+    t.integer  "sign_in_count",          default: 0,       null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.integer  "role",                   limit: 4
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
-    t.string   "provider",               limit: 255,   default: "email", null: false
-    t.string   "uid",                    limit: 255,   default: "",      null: false
-    t.string   "confirmation_token",     limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "role"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "provider",               default: "email", null: false
+    t.string   "uid",                    default: "",      null: false
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
-    t.text     "tokens",                 limit: 65535
+    t.string   "unconfirmed_email"
+    t.text     "tokens"
   end
 
-  add_index "forge_users", ["confirmation_token"], name: "index_forge_users_on_confirmation_token", unique: true, using: :btree
-  add_index "forge_users", ["email"], name: "index_forge_users_on_email", unique: true, using: :btree
-  add_index "forge_users", ["reset_password_token"], name: "index_forge_users_on_reset_password_token", unique: true, using: :btree
-  add_index "forge_users", ["uid", "provider"], name: "index_forge_users_on_uid_and_provider", unique: true, using: :btree
+  add_index "forge_users", ["confirmation_token"], name: "index_forge_users_on_confirmation_token", unique: true
+  add_index "forge_users", ["email"], name: "index_forge_users_on_email", unique: true
+  add_index "forge_users", ["reset_password_token"], name: "index_forge_users_on_reset_password_token", unique: true
+  add_index "forge_users", ["uid", "provider"], name: "index_forge_users_on_uid_and_provider", unique: true
 
 end

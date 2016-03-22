@@ -9,7 +9,7 @@ describe Forge::PostPolicy, :type => :policy do
   let(:other_author)     { create :author_user }
   let(:other_post)       { create :post, user: other_author }
   let(:posts)            { create_list(:post, 15, user: author) }
-  let(:unpublished_post) { create :post, user_id: author.id, publish_date: nil }
+  let(:unpublished_post) { create :post, user_id: author.id, published_at: nil }
 
   permissions :update?, :show?, :destroy? do
 

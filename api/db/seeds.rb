@@ -3,7 +3,7 @@
 # Create default admin user
 #user = CreateAdminService.new.call
 #puts 'CREATED ADMIN USER: ' << user.email
-user = Forgecms::User.new
+user = Forge::User.new
 user.first_name = 'Admin'
 user.last_name = 'Person'
 user.email = 'admin@example.com'

@@ -31,4 +31,33 @@ RSpec.describe Forge::Post, type: :model do
       expect(post.slug).to eq("my-first-post")
     end
   end
+
+  describe "#status" do
+    let(:status){ [:draft, :review, :published] }
+
+    it "status has the right values" do
+      status.each_with_index do |item, index|
+        expect(described_class.statuses[item]).to eq(index)
+      end
+    end
+  end
+
+  context "unpublished" do
+
+    describe "#publish_by" do
+      let(:post) { create :post }
+
+      it "sets published_by" do
+          post.publish_by(1)
+          expect(post.published_by).to eq(1)
+      end
+
+      it "sets status to published" do
+      end
+
+      it "sets published_at" do
+      end
+
+    end
+  end
 end
