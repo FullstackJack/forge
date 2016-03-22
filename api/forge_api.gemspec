@@ -46,7 +46,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'faker'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'factory_girl_rails'
-  s.add_development_dependency 'mysql2'
+  s.add_development_dependency 'sqlite3'
 
   # Require timezone info for Windows
   s.add_development_dependency 'tzinfo-data'
