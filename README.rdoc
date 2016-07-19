@@ -1,3 +1,7 @@
 == Forge
 
 A blogging platform.
+
+=== Where is the actual code?
+
+The backend for the blogging platform is a JSON API implemented as a Rails engine located under the /api directory. You won't find much out here in the root since the front end area will eventually be implemented using AngularJS or EmberJS. Initially, the project started with HAML views but it has become a goal of mine to master separating front and back using RESTful APIs and front end MVVC frameworks.
